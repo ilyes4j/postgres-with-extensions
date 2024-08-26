@@ -1,0 +1,14 @@
+services:
+  postgres_pgaudit:
+    command: -c config_file=/etc/postgresql.conf
+    image: postgres_pgaudit
+    hostname: postgres_pgaudit
+    container_name: postgres_pgaudit
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./customPostgresql.conf:/etc/postgresql.conf
+      - ./postgres_data:/var/lib/postgresql/data
+      - ./logs:/logs
